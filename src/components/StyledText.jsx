@@ -8,6 +8,8 @@ const style = StyleSheet.create({
     color: theme.colors.primary,
     fontSize: theme.fontSizes.body,
     fontFamily: theme.fonts.body,
+    width: '100%',
+    textAlign: 'center',
   },
   colorPrimary: {
     color: theme.colors.primary,

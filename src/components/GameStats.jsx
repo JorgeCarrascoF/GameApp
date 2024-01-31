@@ -10,10 +10,6 @@ const GameStats = ({ game }) => {
           <StyledText>{game.minPlayers} - {game.maxPlayers} </StyledText>
         </View>
         <View>
-          <StyledText fontWeight={'bold'}>Last Played</StyledText>
-          <StyledText>{game.lastTimePlayed}</StyledText>
-        </View>
-        <View>
           <StyledText fontWeight={'bold'}>Owner</StyledText>
           <StyledText>{game.owner}</StyledText>
         </View>
