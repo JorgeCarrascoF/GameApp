@@ -1,30 +1,30 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useContext } from "react";
 import {
   Button,
-  FlatList,
   ScrollView,
   Text,
-  TextInput,
   View,
 } from "react-native";
-import tabletopGames from "../data/games";
 import GameCard from "./GameCard";
-import StyledText from "./StyledText";
 import { Link } from "react-router-native";
+import { GamesContext } from "./Main";
 
 const GamesList = () => {
-  let owners = tabletopGames.map((game) => game.owner);
+
+  const {gamesData} = useContext(GamesContext);
+
+  let owners = gamesData.map((game) => game.owner);
   let uniqueOwners = [...new Set(owners)];
 
   const [filtering, setFiltering] = useState(false);
-  const [games, setGames] = useState(tabletopGames);
+  const [games, setGames] = useState(gamesData);
   const [seeOwners, setSeeOwners] = useState(true);
   const [ownersFiltered, setOwnersFiltered] = useState([]);
   const [minPlayers, setMinPlayers] = useState(2);
   const [maxPlayers, setMaxPlayers] = useState(5);
 
   const filterGames = () => {
-    let newGames = tabletopGames.filter(
+    let newGames = gamesData.filter(
       (game) =>
         minPlayers >= game.minPlayers &&
         maxPlayers <= game.maxPlayers &&
@@ -76,7 +76,7 @@ const GamesList = () => {
         }}
         onPress={() => {
           setFiltering(!filtering);
-          setGames(tabletopGames);
+          setGames(gamesData);
         }}
       >
         {filtering ? "╳" : "Filter"}

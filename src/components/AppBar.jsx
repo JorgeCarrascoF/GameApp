@@ -1,14 +1,13 @@
 import React from "react";
-import { View, Text } from "react-native";
+import { View, Image, Text } from "react-native";
 import { Link, useLocation } from "react-router-native";
 import StyledText from "./StyledText";
-
 const AppBar = () => {
   return (
     <View
       style={{
         backgroundColor: "red",
-        height: 40,
+        height: 50,
         flexDirection: "row",
         justifyContent: "space-evenly",
         alignItems: "center",
@@ -16,23 +15,28 @@ const AppBar = () => {
         width: "100%",
         position: "absolute",
         bottom: 0,
-        zIndex: 1
+        zIndex: 10,
       }}
     >
-      <AppBarTab to="/">Home</AppBarTab>
+
+        <Link to={"/gamelist"}>
+          <Image
+            source={require("../img/games.png")}
+            style={{ width: 30, height: 30 }}
+          />
+        </Link>
+        <Link to={"/tools"}>
+          <Image
+            source={require("../img/tool.png")}
+            style={{ width: 30, height: 30 }}
+          />
+        </Link>
+
+      {/* <AppBarTab to="/" src="../img/home.png">Home</AppBarTab>
       <AppBarTab to="/gamelist">Games</AppBarTab>
       <AppBarTab to="/tools">Tools</AppBarTab>
-      <AppBarTab to="/account">Account</AppBarTab>
+      <AppBarTab to="/account">Account</AppBarTab> */}
     </View>
-  );
-};
-const AppBarTab = ({ children, to }) => {
-    const { pathname } = useLocation();
-    const active = pathname === to;
-  return (
-    <Link to={to}>
-      <StyledText fontWeight="bold">{children}</StyledText>
-    </Link>
   );
 };
 
