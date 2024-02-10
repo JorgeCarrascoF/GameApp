@@ -3,14 +3,16 @@ import { View } from "react-native";
 import Constants from "expo-constants";
 import GamesList from "./GamesList";
 import AppBar from "./AppBar";
-import Account from "./Account";
 import Tools from "./Tools";
 import NewGameForm from "./NewGameForm";
 import { Route, Routes } from "react-router-native";
-import Home from "./Home";
 import GamePage from "./GamePage";
 import tabletopGames from "../data/games";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+import DiceRoller from "./DiceRoller";
+import TurnSelector from "./Turns";
+import TeamDivision from "./Teams";
+import PointTracker from "./PointsTracker";
 
 const clearAll = async () => {
   try {
@@ -43,11 +45,11 @@ const Main = () => {
     fetchGames();
   },[])
 
-  return (
+  return ( 
     <View
       style={{
         paddingTop: Constants.statusBarHeight,
-        backgroundColor: "#FFC0CB",
+        backgroundColor: "#FFFFFF",
         height: "100%",
         zIndex: 0,
       }}
@@ -55,12 +57,14 @@ const Main = () => {
       <GamesContext.Provider value={{ gamesData, setGamesData }}>
         <AppBar></AppBar>
         <Routes>
-          <Route path="/" exact Component={Home} />
-          <Route path="/gamelist" exact Component={GamesList} />
+          <Route path="/" exact Component={GamesList} />
           <Route path="/tools" exact Component={Tools} />
-          <Route path="/account" exact Component={Account} />
           <Route path="/game/:id" exact Component={GamePage} />
-          <Route path="/newgame" exact Component={NewGameForm}></Route>
+          <Route path="/newgame" exact Component={NewGameForm}/>
+          <Route path="/rolldice" exact Component={DiceRoller}/>
+          <Route path="/turns" exact Component={TurnSelector}/>
+          <Route path="/teams" exact Component={TeamDivision}/>
+          <Route path="/points" exact Component={PointTracker}/>
         </Routes>
       </GamesContext.Provider>
     </View>

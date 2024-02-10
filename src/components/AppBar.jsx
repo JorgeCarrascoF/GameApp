@@ -6,7 +6,7 @@ const AppBar = () => {
   return (
     <View
       style={{
-        backgroundColor: "red",
+        backgroundColor: "#5899e2",
         height: 50,
         flexDirection: "row",
         justifyContent: "space-evenly",
@@ -19,7 +19,7 @@ const AppBar = () => {
       }}
     >
 
-        <Link to={"/gamelist"}>
+        <Link to={"/"}>
           <Image
             source={require("../img/games.png")}
             style={{ width: 30, height: 30 }}
