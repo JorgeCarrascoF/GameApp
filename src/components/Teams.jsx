@@ -56,7 +56,7 @@ const TeamDivision = () => {
           borderRadius: 5,
         }}
       >
-        <Text>Dividir</Text>
+        <Text style={{fontWeight: 'bold', color: 'white'}}>Dividir</Text>
       </TouchableOpacity>
       {teamsDivided != [] && (
         <View

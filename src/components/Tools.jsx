@@ -12,40 +12,40 @@ const Tools = () => {
         justifyContent: "space-evenly",
       }}
     >
-      <Link to={"/teams"}>
-        <View style={{flexDirection: 'column'}}>
+      <Link to={"/teams"} underlayColor={"transparent"}> 
+        <View style={{flexDirection: 'column', alignItems: 'center'}}>
           <Image
             source={require("../img/team.png")}
             style={{ width: 100, height: 100, marginBottom: 5 }}
           />
-          <Text style={{ textAlign: "center" }}>Formar equipos</Text>
+          <Text style={{ textAlign: "center", fontWeight: 'bold', fontSize: 18 }}>Formar equipos</Text>
         </View>
       </Link>
-      <Link to={"/rolldice"}>
-        <View style={{flexDirection: 'column'}}>
+      <Link to={"/rolldice"} underlayColor={"transparent"}>
+        <View style={{flexDirection: 'column', alignItems: 'center'}}>
           <Image
             source={require("../img/dice.png")}
             style={{ width: 100, height: 100, marginBottom: 5}}
           />
-          <Text style={{ textAlign: "center" }}>Dados</Text>
+          <Text style={{ textAlign: "center", fontWeight: 'bold', fontSize: 18 }}>Dados</Text>
         </View>
       </Link>
-      <Link to={"/turns"}>
-        <View style={{flexDirection: 'column'}}>
+      <Link to={"/turns"} underlayColor={"transparent"}>
+        <View style={{flexDirection: 'column', alignItems: 'center'}}>
           <Image
             source={require("../img/turn.png")}
             style={{ width: 100, height: 100, marginBottom: 5 }}
           />
-          <Text style={{ textAlign: "center" }}>Primer turno</Text>
+          <Text style={{ textAlign: "center", fontWeight: 'bold', fontSize: 18 }}>Primer turno</Text>
         </View>
       </Link>
-      <Link to={"/points"}>
-        <View style={{flexDirection: 'column'}}>
+      <Link to={"/points"} underlayColor={"transparent"}>
+        <View style={{flexDirection: 'column', alignItems: 'center'}}>
           <Image
             source={require("../img/points.png")}
             style={{ width: 100, height: 100, marginBottom: 5 }}
           />
-          <Text style={{ textAlign: "center" }}>Puntuaciones</Text>
+          <Text style={{ textAlign: "center", fontWeight: 'bold', fontSize: 18 }}>Puntuaciones</Text>
         </View>
       </Link>
     </View>

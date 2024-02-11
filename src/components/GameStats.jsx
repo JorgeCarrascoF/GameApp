@@ -10,7 +10,7 @@ const GameStats = ({ game }) => {
           <Text style={{marginVertical: 10}}>{game.minPlayers} - {game.maxPlayers} </Text>
         </View>
         <View style={{borderWidth: 2, width: 100, alignItems: 'center', borderColor: '#5899e2', borderRadius: 4}}>
-          <Text style={{fontSize: 16, fontWeight: 'bold', backgroundColor:  '#5899e2', textAlign: 'center', marginTop: -1, marginLeft: -1, paddingHorizontal: 5, paddingVertical: 3, color: 'white', width: '101%'}}>Owner</Text>
+          <Text style={{fontSize: 16, fontWeight: 'bold', backgroundColor:  '#5899e2', textAlign: 'center', marginTop: -1, marginLeft: -1, paddingHorizontal: 5, paddingVertical: 3, color: 'white', width: '102%'}}>Owner</Text>
           <Text style={{marginVertical: 10}}>{game.owner}</Text>
         </View>
       </View>

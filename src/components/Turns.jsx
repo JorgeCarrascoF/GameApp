@@ -33,7 +33,7 @@ const TurnSelector = () => {
           paddingVertical: 8,
           borderRadius: 5,
         }} >
-        <Text>Mostrar primer jugador</Text>
+        <Text style={{fontWeight: 'bold', color: 'white'}}>Mostrar primer jugador</Text>
       </TouchableOpacity>
       {turnSelected && (
         <Text style={{fontSize: 20, marginTop: 20, color: '#5899e2', fontWeight: 'bold'}}>¡{startingPlayer} empieza!</Text>

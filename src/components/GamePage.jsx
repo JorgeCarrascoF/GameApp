@@ -102,7 +102,7 @@ const GamePage = () => {
           paddingHorizontal: 10,
         }}
       >
-        <Link to={"/"}>
+        <Link to={"/"} underlayColor={"transparent"}>
           <Image
             source={require("../img/arrow-left.png")}
             style={{ width: 30, height: 30 }}

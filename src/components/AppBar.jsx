@@ -18,13 +18,13 @@ const AppBar = () => {
       }}
     >
 
-        <Link to={"/"}>
+        <Link to={"/"} underlayColor={"transparent"}>
           <Image
             source={require("../img/games.png")}
             style={{ width: 30, height: 30 }}
           />
         </Link>
-        <Link to={"/tools"}>
+        <Link to={"/tools"} underlayColor={"transparent"}> 
           <Image
             source={require("../img/tool.png")}
             style={{ width: 30, height: 30 }}

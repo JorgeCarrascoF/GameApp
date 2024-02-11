@@ -78,7 +78,9 @@ const PointTracker = () => {
               paddingHorizontal: 10,
               paddingVertical: 5,
               backgroundColor: "#5899e2",
+              color: "white",
               textAlign: "center",
+              fontWeight: "bold",
             }}
           >
             Añadir
@@ -130,18 +132,18 @@ const PlayerPunctuation = ({ player, deletePlayer }) => {
       <View style={{ flexDirection: "row", alignItems: "center" }}>
         <TouchableHighlight
           onPress={decrementPoints}
-          style={{ backgroundColor: "#5899e2", width: 20, borderRadius: 15}}
+          style={{ backgroundColor: "#5899e2", width: 25, height: 25, borderRadius: 15}}
         >
-          <Text style={{ textAlign: "center", color: "white" }}>-</Text>
+          <Text style={{ textAlign: "center", color: "white", fontSize: 18}}>-</Text>
         </TouchableHighlight>
-        <Text style={{ marginHorizontal: 10, color: "#5899e2", fontSize: 20 }}>
+        <Text style={{ marginHorizontal: 10, color: "#5899e2", fontSize: 25 }}>
           {points}
         </Text>
         <TouchableHighlight
           onPress={incrementPoints}
-          style={{ backgroundColor: "#5899e2", width: 20, borderRadius: 15 }}
+          style={{ backgroundColor: "#5899e2", width: 25, height: 25, borderRadius: 15 }}
         >
-          <Text style={{ textAlign: "center", color: "white" }}>+</Text>
+          <Text style={{ textAlign: "center", color: "white", fontSize: 18 }}>+</Text>
         </TouchableHighlight>
       </View>
     </View>
