@@ -1,6 +1,6 @@
 import React from "react";
-import { View, Image, Text } from "react-native";
-import { Link, useLocation } from "react-router-native";
+import { View, Image } from "react-native";
+import { Link } from "react-router-native";
 const AppBar = () => {
   return (
     <View

@@ -1,11 +1,19 @@
 import React from "react";
 import { View, Text, StyleSheet, Image } from "react-native";
 import { Link } from "react-router-native";
-import StyledText from "./StyledText";
 
 const GameCard = ({ game }) => {
   return (
-    <View key={game.id} style={styles.container}>
+    <View
+      key={game.id}
+      style={{
+        width: "31%",
+        margin: 4,
+        borderWidth: 3,
+        borderColor: "#5899e2",
+        borderRadius: 8,
+      }}
+    >
       <Link to={`/game/${game.id}`}>
         <Image
           style={{
@@ -39,15 +47,5 @@ const GameCard = ({ game }) => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    width: "31%",
-    margin: 4,
-    borderWidth: 3,
-    borderColor: "#5899e2",
-    borderRadius: 8,
-  },
-});
 
 export default GameCard;

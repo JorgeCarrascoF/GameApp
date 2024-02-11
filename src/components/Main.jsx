@@ -14,14 +14,6 @@ import TurnSelector from "./Turns";
 import TeamDivision from "./Teams";
 import PointTracker from "./PointsTracker";
 
-const clearAll = async () => {
-  try {
-    await AsyncStorage.clear()
-  } catch(e) {
-    console.error(e);
-  }
-}
-
 export const GamesContext = createContext();
 
 const Main = () => {
@@ -32,20 +24,20 @@ const Main = () => {
       let data = await AsyncStorage.getItem("games");
       if (data !== null) {
         setGamesData(JSON.parse(data));
-      } else {      
+      } else {
         await AsyncStorage.setItem("games", JSON.stringify(tabletopGames));
         setGamesData(tabletopGames);
       }
     } catch (e) {
       console.error(e);
     }
-  }
+  };
 
-  useEffect(()=>{
+  useEffect(() => {
     fetchGames();
-  },[])
+  }, []);
 
-  return ( 
+  return (
     <View
       style={{
         paddingTop: Constants.statusBarHeight,
@@ -60,11 +52,11 @@ const Main = () => {
           <Route path="/" exact Component={GamesList} />
           <Route path="/tools" exact Component={Tools} />
           <Route path="/game/:id" exact Component={GamePage} />
-          <Route path="/newgame" exact Component={NewGameForm}/>
-          <Route path="/rolldice" exact Component={DiceRoller}/>
-          <Route path="/turns" exact Component={TurnSelector}/>
-          <Route path="/teams" exact Component={TeamDivision}/>
-          <Route path="/points" exact Component={PointTracker}/>
+          <Route path="/newgame" exact Component={NewGameForm} />
+          <Route path="/rolldice" exact Component={DiceRoller} />
+          <Route path="/turns" exact Component={TurnSelector} />
+          <Route path="/teams" exact Component={TeamDivision} />
+          <Route path="/points" exact Component={PointTracker} />
         </Routes>
       </GamesContext.Provider>
     </View>

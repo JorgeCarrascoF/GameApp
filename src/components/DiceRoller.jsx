@@ -65,7 +65,7 @@ const DiceRoller = () => {
       </View>
       <View style={{alignItems: 'center', justifyContent: 'center', width: '60%', padding: 4, marginTop: 50}}>
       <Text style={{marginLeft: 10, fontSize: 20}}>Resultado:</Text>
-      <Text style={{fontSize: 50, textAlign: 'center', width: '100%'}}> {diceValue}</Text>
+      <Text style={{fontSize: 50, textAlign: 'center', width: '100%', color: '#5899e2'}}> {diceValue}</Text>
       </View>
     </View>
   );

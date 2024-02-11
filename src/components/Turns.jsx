@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, TouchableOpacity, TextInput, Text, StyleSheet } from "react-native";
+import { View, TouchableOpacity, TextInput, Text } from "react-native";
 
 const TurnSelector = () => {
     const [players, setPlayers] = useState("");

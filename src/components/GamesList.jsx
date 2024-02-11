@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useContext } from "react";
 import {
-  Button,
   ScrollView,
   Text,
   TouchableHighlight,
@@ -32,6 +31,10 @@ const GamesList = () => {
     );
     setGames(newGames);
   };
+
+  useEffect(() => {
+    setGames(gamesData);
+  }, [gamesData]);
 
   useEffect(() => {
     if (filtering) {

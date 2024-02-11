@@ -57,21 +57,21 @@ const NewGameForm = () => {
     if (type == 'success') {
       Toast.show({
         type: "success",
-        visibilityTime: 3000,
+        visibilityTime: 2000,
         autoHide: true,
         text1: "Juego añadido!",
       });
     } else  if (type == 'no game') {
       Toast.show({
         type: "noGameToast",
-        visibilityTime: 3000,
+        visibilityTime: 2000,
         autoHide: true,
         text1: "Debes añadir por lo menos el nombre y el número de jugadores!",
       });
     } else if (type == 'error') {
       Toast.show({
         type: "error",
-        visibilityTime: 3000,
+        visibilityTime: 2000,
         autoHide: true,
         text1: "Ya has añadido ese juego!",
       });

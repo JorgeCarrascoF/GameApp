@@ -1,7 +1,5 @@
 import React from "react";
 import { View, Text } from "react-native";
-import StyledText from "./StyledText";
-
 const GameStats = ({ game }) => {
     return (
       <View style={{ flexDirection: "row", width: '100%', marginTop: 30, justifyContent: "space-around" }}>

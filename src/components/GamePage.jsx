@@ -1,6 +1,5 @@
-import { React, useState, useContext, useEffect } from "react";
-import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
-import StyledText from "./StyledText";
+import { React, useState, useContext } from "react";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 import GameStats from "./GameStats";
 import { Link, redirect, useParams } from "react-router-native";
 import { GamesContext } from "./Main";
@@ -36,13 +35,21 @@ const GamePage = () => {
     Toast.show({
       type: "success",
       text1: "Game deleted",
-      visibilityTime: 3000,
+      visibilityTime: 2000,
     });
     redirect("/gamelist");
   };
 
   return (
-    <View style={styles.container}>
+    <View
+      style={{
+        height: "100%",
+        width: "100%",
+        padding: 10,
+        marginTop: 20,
+        zIndex: 0,
+      }}
+    >
       {deleting && (
         <View
           style={{
@@ -83,7 +90,7 @@ const GamePage = () => {
                 deleteGame(id);
               }}
             >
-              <Text style={{color: 'red'}}>Yes, delete it</Text>
+              <Text style={{ color: "red" }}>Yes, delete it</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
@@ -126,15 +133,21 @@ const GamePage = () => {
               style={{ width: 350, height: 350, margin: 20, borderRadius: 4 }}
               source={{ uri: game.image }}
             ></Image>
-            <StyledText
-              fontSize={"heading"}
-              color={"primary"}
-              fontWeight={"bold"}
+            <Text
+              style={{ fontSize: 30, fontWeight: "bold", color: "#5899e2" }}
             >
               {game.name}
-            </StyledText>
+            </Text>
           </View>
-          <StyledText>{game.description}</StyledText>
+          <Text
+            style={{
+              width: "100%",
+              textAlign: "center",
+              paddingHorizontal: 10,
+            }}
+          >
+            {game.description}
+          </Text>
           <GameStats game={game}></GameStats>
         </View>
       )}
@@ -142,15 +155,5 @@ const GamePage = () => {
     </View>
   );
 };
-
-const styles = StyleSheet.create({
-  container: {
-    height: "100%",
-    width: "100%",
-    padding: 10,
-    marginTop: 20,
-    zIndex: 0,
-  },
-});
 
 export default GamePage;
