@@ -42,7 +42,7 @@ const TeamDivision = () => {
         onChangeText={(e) => {
           setTeams(e);
         }}
-        style={{ borderWidth: 1, borderRadius: 5, padding: 1, width: 50 }}
+        style={{ borderWidth: 1, textAlign: 'center', borderRadius: 5, padding: 1, width: 50 }}
       ></TextInput>
       <TouchableOpacity
         onPress={() => {

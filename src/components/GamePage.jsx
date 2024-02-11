@@ -74,7 +74,7 @@ const GamePage = () => {
               padding: 10,
             }}
           >
-            {`Are you sure you want to delete ${game.name}?`}
+            {`¿Seguro que quieres borrar ${game.name}?`}
           </Text>
           <View
             style={{
@@ -90,14 +90,14 @@ const GamePage = () => {
                 deleteGame(id);
               }}
             >
-              <Text style={{ color: "red" }}>Yes, delete it</Text>
+              <Text style={{ color: "red" }}>Sí, bórralo</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
                 setDeleting(false);
               }}
             >
-              <Text>No, keep it</Text>
+              <Text>No, no quiero</Text>
             </TouchableOpacity>
           </View>
         </View>
