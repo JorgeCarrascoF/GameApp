@@ -1,7 +1,6 @@
 import React from "react";
 import { View, Image, Text } from "react-native";
 import { Link, useLocation } from "react-router-native";
-import StyledText from "./StyledText";
 const AppBar = () => {
   return (
     <View
@@ -31,11 +30,6 @@ const AppBar = () => {
             style={{ width: 30, height: 30 }}
           />
         </Link>
-
-      {/* <AppBarTab to="/" src="../img/home.png">Home</AppBarTab>
-      <AppBarTab to="/gamelist">Games</AppBarTab>
-      <AppBarTab to="/tools">Tools</AppBarTab>
-      <AppBarTab to="/account">Account</AppBarTab> */}
     </View>
   );
 };

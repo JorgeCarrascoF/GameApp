@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import {
   View,
   Text,
-  Button,
   Image,
   TextInput,
   TouchableWithoutFeedback,
@@ -15,7 +14,7 @@ const PointTracker = () => {
   const [newPlayer, setNewPlayer] = useState("");
 
   const addNewPlayer = () => {
-    if(newPlayer !== ""){
+    if (newPlayer !== "") {
       let newPlayersArray = players;
       newPlayersArray.push(newPlayer);
       setPlayers(newPlayersArray);
@@ -29,8 +28,24 @@ const PointTracker = () => {
   };
 
   return (
-    <ScrollView contentContainerStyle={{alignItems: 'center'}} style={{ marginTop: 20 }}>
-      <Text style={{ fontSize: 30, marginBottom: 20, paddingLeft: 15, borderBottomWidth: 1, width: 350, textAlign: 'left' }}>Puntuaciones</Text>
+    <ScrollView
+      contentContainerStyle={{ alignItems: "center" }}
+      style={{ marginTop: 20, paddingTop: 20 }}
+    >
+      <Text
+        style={{
+          fontSize: 30,
+          marginBottom: 30,
+          paddingLeft: 15,
+          borderBottomWidth: 1,
+          width: 350,
+          textAlign: "left",
+          color: "#5899e2",
+          borderColor: "#5899e2",
+        }}
+      >
+        Puntuaciones
+      </Text>
       {players.map((player) => (
         <PlayerPunctuation
           player={player}
@@ -42,7 +57,13 @@ const PointTracker = () => {
           onChangeText={(e) => {
             setNewPlayer(e);
           }}
-          style={{ width: 200, marginRight: 10, borderWidth: 1 }}
+          style={{
+            width: 200,
+            marginRight: 10,
+            borderWidth: 1,
+            borderRadius: 5,
+            paddingLeft: 8,
+          }}
         >
           {newPlayer}
         </TextInput>
@@ -53,13 +74,14 @@ const PointTracker = () => {
         >
           <Text
             style={{
-              borderWidth: 2,
               borderRadius: 20,
-              width: 23,
+              paddingHorizontal: 10,
+              paddingVertical: 5,
+              backgroundColor: "#5899e2",
               textAlign: "center",
             }}
           >
-            +
+            Añadir
           </Text>
         </TouchableWithoutFeedback>
       </View>
@@ -81,35 +103,45 @@ const PlayerPunctuation = ({ player, deletePlayer }) => {
     <View
       style={{
         flexDirection: "row",
-        marginBottom: 20,
-        width: 220,
-        borderWidth: 1,
+        marginBottom: 15,
+        width: 330,
+        backgroundColor: "#EeEeEe",
         alignItems: "center",
         justifyContent: "space-between",
-        backgroundColor: "lightgrey",
-        paddingHorizontal: 5,
-        paddingVertical: 1,
+        paddingHorizontal: 10,
+        paddingVertical: 3,
         borderRadius: 10,
       }}
     >
-      <Text style={{ fontSize: 18 }}>{player}</Text>
-      <View style={{ flexDirection: "row", alignItems: "center" }}>
-        <TouchableHighlight onPress={incrementPoints}>
-          <Text>+</Text>
-        </TouchableHighlight>
-        <Text style={{ marginHorizontal: 5 }}>{points}</Text>
-        <TouchableHighlight onPress={decrementPoints}>
-          <Text>-</Text>
-        </TouchableHighlight>
+      <View style={{flexDirection: 'row', alignItems: 'center'}}>
         <TouchableHighlight
           onPress={() => {
             deletePlayer(player);
           }}
+          style={{ marginRight: 15, width: 20 }}
         >
           <Image
             source={require("../img/delete.png")}
-            style={{ width: 20, height: 20, marginLeft: 10 }}
+            style={{ width: 20, height: 20 }}
           ></Image>
+        </TouchableHighlight>
+        <Text style={{ fontSize: 18 }}>{player}</Text>
+      </View>
+      <View style={{ flexDirection: "row", alignItems: "center" }}>
+        <TouchableHighlight
+          onPress={decrementPoints}
+          style={{ backgroundColor: "#5899e2", width: 20, borderRadius: 15}}
+        >
+          <Text style={{ textAlign: "center", color: "white" }}>-</Text>
+        </TouchableHighlight>
+        <Text style={{ marginHorizontal: 10, color: "#5899e2", fontSize: 20 }}>
+          {points}
+        </Text>
+        <TouchableHighlight
+          onPress={incrementPoints}
+          style={{ backgroundColor: "#5899e2", width: 20, borderRadius: 15 }}
+        >
+          <Text style={{ textAlign: "center", color: "white" }}>+</Text>
         </TouchableHighlight>
       </View>
     </View>

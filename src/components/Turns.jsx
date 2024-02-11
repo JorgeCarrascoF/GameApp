@@ -14,28 +14,29 @@ const TurnSelector = () => {
     }
 
   return (
-    <View style={{ alignItems: "center", paddingTop: 50, gap: 10 }}>
+    <View style={{ alignItems: "center", paddingTop: 40, gap: 10 }}>
+      <Text style={{ fontSize: 30, marginBottom: 20, paddingLeft: 15, borderBottomWidth: 1, width: 350, textAlign: 'left', color:'#5899e2', borderColor: '#5899e2' }}>Primer turno</Text>
       <Text>Introduce los jugadores separados por comas</Text>
       <TextInput
         onChangeText={(e) => {
           setPlayers(e);
         }}
-        style={{ borderWidth: 1, padding: 1, width: 300 }}
+        style={{ borderWidth: 1, paddingLeft: 10, borderRadius: 5, padding: 1, width: 300 }}
       ></TextInput>
       <TouchableOpacity onPress={() => {
           selectFirstTurn();
         }}
         style={{
-          borderWidth: 1,
-          backgroundColor: "red",
-          paddingHorizontal: 4,
-          paddingVertical: 2,
+          marginTop: 10,
+          backgroundColor: "#5899e2",
+          paddingHorizontal: 10,
+          paddingVertical: 8,
           borderRadius: 5,
         }} >
-        <Text>Who will start?</Text>
+        <Text>Mostrar primer jugador</Text>
       </TouchableOpacity>
       {turnSelected && (
-        <Text>{startingPlayer} will start!</Text>
+        <Text style={{fontSize: 20, marginTop: 20, color: '#5899e2', fontWeight: 'bold'}}>¡{startingPlayer} empieza!</Text>
       )}
     </View>
   );

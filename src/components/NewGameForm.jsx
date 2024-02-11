@@ -14,7 +14,7 @@ const toastConfig = {
       style={{
         borderLeftColor: "green",
         position: "absolute",
-        top: -20,
+        top: -40,
         width: "100%",
         fontSize: 15,
       }}
@@ -27,7 +27,7 @@ const toastConfig = {
       style={{
         borderLeftColor: "red",
         position: "absolute",
-        top: -20,
+        top: -40,
         width: "100%",
         fontSize: 15,
       }}
@@ -40,7 +40,7 @@ const toastConfig = {
       style={{
         borderLeftColor: "red",
         position: "absolute",
-        top: -20,
+        top: -40,
         width: "100%",
         fontSize: 15,
       }}
@@ -59,21 +59,21 @@ const NewGameForm = () => {
         type: "success",
         visibilityTime: 3000,
         autoHide: true,
-        text1: "Game added!",
+        text1: "Juego añadido!",
       });
     } else  if (type == 'no game') {
       Toast.show({
         type: "noGameToast",
         visibilityTime: 3000,
         autoHide: true,
-        text1: "Game need at least a name and min/max players!",
+        text1: "Debes añadir por lo menos el nombre y el número de jugadores!",
       });
     } else if (type == 'error') {
       Toast.show({
         type: "error",
         visibilityTime: 3000,
         autoHide: true,
-        text1: "Game already added!",
+        text1: "Ya has añadido ese juego!",
       });
     }
   };
@@ -112,10 +112,10 @@ const NewGameForm = () => {
         id: gamesData.length,
         name: gameName,
         description: gameDescription,
-        image: gameImage,
+        image: gameImage == '' ? "https://miro.medium.com/v2/0*ZjYSm_q36J4KChdn" : gameImage,
         minPlayers: gameMinPlayers,
         maxPlayers: gameMaxPlayers,
-        owner: newOwner ? newOwner : gameOwner,
+        owner: newOwner ? newOwner : gameOwner == '' ? "Jorge" : gameOwner,
       };
       gamesData.push(data);
       setGamesData(gamesData);
@@ -129,20 +129,13 @@ const NewGameForm = () => {
       style={{ paddingVertical: 25, paddingHorizontal: 15, zIndex: 1 }}
     >
       <Text
-        style={{
-          fontWeight: "bold",
-          fontSize: 18,
-          borderBottomWidth: 2,
-          width: 350,
-          paddingLeft: 10,
-          marginBottom: 50,
-        }}
+        style={{ fontSize: 30, marginBottom: 20, paddingLeft: 15, borderBottomWidth: 1, width: 350, textAlign: 'left', color:'#5899e2', borderColor: '#5899e2' }}
       >
-        Add New Game
+        Añadir juego nuevo
       </Text>
       <Toast config={toastConfig} />
       <Text style={{ fontSize: 15, paddingLeft: 10, marginBottom: 4 }}>
-        Game name
+        Nombre
       </Text>
       <TextInput
         style={{
@@ -153,7 +146,7 @@ const NewGameForm = () => {
           paddingVertical: 5,
           marginBottom: 20,
           borderRadius: 5,
-          backgroundColor: "#fadce1",
+          backgroundColor: "#d7e7fa",
         }}
         defaultValue={gameName}
         onChangeText={(e) => {
@@ -161,7 +154,7 @@ const NewGameForm = () => {
         }}
       ></TextInput>
       <Text style={{ fontSize: 15, paddingLeft: 10, marginBottom: 4 }}>
-        Description
+        Descripción
       </Text>
       <TextInput
         numberOfLines={3}
@@ -173,7 +166,7 @@ const NewGameForm = () => {
           paddingVertical: 5,
           marginBottom: 20,
           borderRadius: 5,
-          backgroundColor: "#fadce1",
+          backgroundColor: "#d7e7fa",
         }}
         defaultValue={gameDescription}
         onChangeText={(e) => {
@@ -181,7 +174,7 @@ const NewGameForm = () => {
         }}
       ></TextInput>
       <Text style={{ fontSize: 15, paddingLeft: 10, marginBottom: 4 }}>
-        Image URL
+        URL de imagen
       </Text>
       <TextInput
         style={{
@@ -191,7 +184,7 @@ const NewGameForm = () => {
           paddingLeft: 10,
           marginBottom: 20,
           borderRadius: 5,
-          backgroundColor: "#fadce1",
+          backgroundColor: "#d7e7fa",
         }}
         defaultValue={gameImage}
         onChangeText={(e) => {
@@ -201,7 +194,7 @@ const NewGameForm = () => {
       <View style={{ flexDirection: "row", justifyContent: "space-evenly" }}>
         <View style={{ alignItems: "center" }}>
           <Text style={{ fontSize: 15, paddingLeft: 10, marginBottom: 4 }}>
-            Min Players
+            Min Jugadores
           </Text>
           <TextInput
             inputMode="numeric"
@@ -213,7 +206,7 @@ const NewGameForm = () => {
               textAlign: "center",
               marginBottom: 20,
               borderRadius: 5,
-              backgroundColor: "#fadce1",
+              backgroundColor: "#d7e7fa",
             }}
             onChangeText={(e) => {
               setGameMinPlayers(e);
@@ -222,7 +215,7 @@ const NewGameForm = () => {
         </View>
         <View style={{ alignItems: "center" }}>
           <Text style={{ fontSize: 15, paddingLeft: 10, marginBottom: 4 }}>
-            Max Players
+            Max Jugadores
           </Text>
           <TextInput
             inputMode="numeric"
@@ -234,7 +227,7 @@ const NewGameForm = () => {
               textAlign: "center",
               marginBottom: 20,
               borderRadius: 5,
-              backgroundColor: "#fadce1",
+              backgroundColor: "#d7e7fa",
             }}
             onChangeText={(e) => {
               setGameMaxPlayers(e);
@@ -243,14 +236,14 @@ const NewGameForm = () => {
         </View>
       </View>
       <Text style={{ fontSize: 15, paddingLeft: 10, marginBottom: 4 }}>
-        Owner
+        Propietario
       </Text>
       <DropdownComponent
         data={data}
         setGameOwner={setGameOwner}
       ></DropdownComponent>
       <Text style={{ fontSize: 15, paddingLeft: 10, marginBottom: 4 }}>
-        Add new owner
+        Añadir nuevo propietario
       </Text>
       <TextInput
         style={{
@@ -260,7 +253,7 @@ const NewGameForm = () => {
           paddingLeft: 10,
           marginBottom: 20,
           borderRadius: 5,
-          backgroundColor: "#fadce1",
+          backgroundColor: "#d7e7fa",
         }}
         onChangeText={(e) => {
           setNewOwner(e);
@@ -276,14 +269,14 @@ const NewGameForm = () => {
         }}
         style={{
           alignSelf: "center",
-          backgroundColor: gameAdded ? "grey" : "blue",
+          backgroundColor: gameAdded ? "grey" : "#5899e2",
           color: "white",
           paddingHorizontal: 12,
           paddingVertical: 7,
           borderRadius: 15,
         }}
       >
-        Add game
+        Añadir juego
       </Text>
       {gameAdded && (
         <Text
@@ -292,7 +285,7 @@ const NewGameForm = () => {
           }}
           style={{
             alignSelf: "center",
-            backgroundColor: "blue",
+            backgroundColor: "#5899e2",
             color: "white",
             marginTop: 10,
             paddingHorizontal: 12,
@@ -300,7 +293,7 @@ const NewGameForm = () => {
             borderRadius: 15,
           }}
         >
-          Add another game
+          Añadir otro juego
         </Text>
       )}
     </ScrollView>
@@ -321,7 +314,7 @@ const DropdownComponent = ({ data, setGameOwner }) => {
         maxHeight={300}
         labelField="label"
         valueField="value"
-        placeholder={!isFocus ? "Select owner" : "..."}
+        placeholder={!isFocus ? "Seleccionar propietario" : "..."}
         value={value}
         onFocus={() => setIsFocus(true)}
         onBlur={() => setIsFocus(false)}
@@ -344,7 +337,7 @@ const styles = StyleSheet.create({
     paddingVertical: 5,
     marginBottom: 20,
     borderRadius: 5,
-    backgroundColor: "#fadce1",
+    backgroundColor: "#d7e7fa",
   },
 });
 

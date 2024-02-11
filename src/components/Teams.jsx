@@ -27,31 +27,32 @@ const TeamDivision = () => {
   };
 
   return (
-    <View style={{ alignItems: "center", paddingTop: 50, gap: 10 }}>
+    <View style={{ alignItems: "center", paddingTop: 40, gap: 10 }}>
+      <Text style={{ fontSize: 30, marginBottom: 20, paddingLeft: 15, borderBottomWidth: 1, width: 350, textAlign: 'left', color:'#5899e2', borderColor: '#5899e2' }}>Formar equipos</Text>
       <Text>Introduce los jugadores separados por comas</Text>
       <TextInput
         onChangeText={(e) => {
           setPlayers(e);
         }}
-        style={{ borderWidth: 1, padding: 1, width: 300 }}
+        style={{ borderWidth: 1, paddingLeft: 10, borderRadius: 5, padding: 1, width: 300 }}
       ></TextInput>
-      <Text>Número de equipos</Text>
+      <Text style={{marginTop: 20}}>Número de equipos</Text>
       <TextInput
         inputMode="numeric"
         onChangeText={(e) => {
           setTeams(e);
         }}
-        style={{ borderWidth: 1, padding: 1, width: 50 }}
+        style={{ borderWidth: 1, borderRadius: 5, padding: 1, width: 50 }}
       ></TextInput>
       <TouchableOpacity
         onPress={() => {
           divideTeams(players, teams);
         }}
         style={{
-          borderWidth: 1,
-          backgroundColor: "red",
-          paddingHorizontal: 4,
-          paddingVertical: 2,
+          marginVertical: 20,
+          backgroundColor: "#5899e2",
+          paddingHorizontal: 10,
+          paddingVertical: 8,
           borderRadius: 5,
         }}
       >
@@ -72,16 +73,20 @@ const TeamDivision = () => {
               <View key={index}>
                 <Text
                   style={{
+                    width: 100,
+                    paddingLeft: 10,
                     fontSize: 16,
                     fontWeight: "bold",
                     borderBottomWidth: 1,
+                    color: '#5899e2',
+                    borderColor: '#5899e2',
                     marginBottom: 10,
                 }}
                 >
                   Equipo {index + 1}
                 </Text>
                 {team.map((player, index) => {
-                  return <Text key={index}>{player}</Text>;
+                  return <Text style={{paddingLeft: 10}} key={index}>{player}</Text>;
                 })}
               </View>
             );

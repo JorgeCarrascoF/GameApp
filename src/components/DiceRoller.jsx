@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { View, Text, Button, Image, TouchableOpacity } from "react-native";
+import { View, Text, Image, TouchableOpacity } from "react-native";
 
 
 const DiceRoller = () => {
@@ -12,8 +12,9 @@ const DiceRoller = () => {
 
   return (
     <View
-      style={{ alignItems: "center", justifyContent: "center", height: '70%', paddingTop: 20 }}
+      style={{ alignItems: "center", justifyContent: "center", height: '75%', paddingTop: 20 }}
     >
+      <Text style={{ fontSize: 30, marginBottom: 30, paddingLeft: 15, borderBottomWidth: 1, width: 350, textAlign: 'left', color:'#5899e2', borderColor: '#5899e2' }}>Dados</Text>
       <View
         style={{
           width: "80%",
@@ -63,7 +64,7 @@ const DiceRoller = () => {
 
       </View>
       <View style={{alignItems: 'center', justifyContent: 'center', width: '60%', padding: 4, marginTop: 50}}>
-      <Text>Number rolled:</Text>
+      <Text style={{marginLeft: 10, fontSize: 20}}>Resultado:</Text>
       <Text style={{fontSize: 50, textAlign: 'center', width: '100%'}}> {diceValue}</Text>
       </View>
     </View>

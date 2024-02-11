@@ -1,4 +1,4 @@
-import { React, useState, useContext } from "react";
+import { React, useState, useContext, useEffect } from "react";
 import { View, Text, StyleSheet, Image, TouchableOpacity } from "react-native";
 import StyledText from "./StyledText";
 import GameStats from "./GameStats";
@@ -63,7 +63,7 @@ const GamePage = () => {
               textAlign: "center",
               fontSize: 20,
               fontWeight: "bold",
-              color: "red",
+              color: "#5899e2",
               padding: 10,
             }}
           >
@@ -83,7 +83,7 @@ const GamePage = () => {
                 deleteGame(id);
               }}
             >
-              <Text>Yes, delete it</Text>
+              <Text style={{color: 'red'}}>Yes, delete it</Text>
             </TouchableOpacity>
             <TouchableOpacity
               onPress={() => {
@@ -123,7 +123,7 @@ const GamePage = () => {
         <View>
           <View style={{ alignItems: "center", padding: 4 }}>
             <Image
-              style={{ width: 220, height: 220, margin: 20, borderRadius: 4 }}
+              style={{ width: 350, height: 350, margin: 20, borderRadius: 4 }}
               source={{ uri: game.image }}
             ></Image>
             <StyledText

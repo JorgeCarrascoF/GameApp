@@ -3,6 +3,7 @@ import {
   Button,
   ScrollView,
   Text,
+  TouchableHighlight,
   View,
 } from "react-native";
 import GameCard from "./GameCard";
@@ -10,8 +11,7 @@ import { Link } from "react-router-native";
 import { GamesContext } from "./Main";
 
 const GamesList = () => {
-
-  const {gamesData} = useContext(GamesContext);
+  const { gamesData } = useContext(GamesContext);
 
   let owners = gamesData.map((game) => game.owner);
   let uniqueOwners = [...new Set(owners)];
@@ -44,8 +44,7 @@ const GamesList = () => {
       {!filtering && (
         <Link
           style={{
-            backgroundColor: "blue",
-
+            backgroundColor: "#5899e2",
             alignSelf: "flex-end",
             paddingVertical: 5,
             paddingHorizontal: 10,
@@ -55,14 +54,14 @@ const GamesList = () => {
             top: 20,
             right: 80,
           }}
-          to={'/newgame'}
+          to={"/newgame"}
         >
-          <Text style={{ color: "white", fontWeight: "bold" }}>New game</Text>
+          <Text style={{ color: "white", fontWeight: "bold" }}>Añadir</Text>
         </Link>
       )}
       <Text
         style={{
-          backgroundColor: "blue",
+          backgroundColor: "#5899e2",
           color: "white",
           fontWeight: "bold",
           alignSelf: "flex-end",
@@ -79,12 +78,11 @@ const GamesList = () => {
           setGames(gamesData);
         }}
       >
-        {filtering ? "╳" : "Filter"}
+        {filtering ? "╳" : "Filtro"}
       </Text>
       {filtering ? (
         <View
           style={{
-            backgroundColor: "pink",
             justifyContent: "center",
             padding: 5,
             zIndex: 0,
@@ -102,18 +100,30 @@ const GamesList = () => {
                 alignItems: "center",
               }}
             >
-              <Text>Min Players</Text>
+              <Text>Min Jugadores</Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Button
-                  title="-"
-                  style={{ borderRadius: 4 }}
+                <TouchableHighlight
+                  style={{ borderRadius: 15 }}
                   onPress={() => {
                     let newMinPlayers = minPlayers - 1;
                     if (newMinPlayers > 0) {
                       setMinPlayers(newMinPlayers);
                     }
                   }}
-                ></Button>
+                >
+                  <Text
+                    style={{
+                      backgroundColor: "#5899e2",
+                      width: 28,
+                      borderRadius: 15,
+                      textAlign: "center",
+                      color: "white",
+                      fontSize: 20,
+                    }}
+                  >
+                    -
+                  </Text>
+                </TouchableHighlight>
                 <Text
                   style={{
                     borderWidth: 1,
@@ -126,15 +136,28 @@ const GamesList = () => {
                 >
                   {minPlayers}
                 </Text>
-                <Button
-                  title="+"
+                <TouchableHighlight
+                  style={{ borderRadius: 15 }}
                   onPress={() => {
                     let newMinPlayer = minPlayers + 1;
                     if (newMinPlayer <= maxPlayers) {
                       setMinPlayers(minPlayers + 1);
                     }
                   }}
-                ></Button>
+                >
+                  <Text
+                    style={{
+                      backgroundColor: "#5899e2",
+                      width: 28,
+                      borderRadius: 15,
+                      textAlign: "center",
+                      color: "white",
+                      fontSize: 20,
+                    }}
+                  >
+                    +
+                  </Text>
+                </TouchableHighlight>
               </View>
             </View>
             <View
@@ -142,18 +165,30 @@ const GamesList = () => {
                 alignItems: "center",
               }}
             >
-              <Text>Max Players</Text>
+              <Text>Max jugadores</Text>
               <View style={{ flexDirection: "row", alignItems: "center" }}>
-                <Button
-                  title="-"
-                  style={{ borderRadius: 4 }}
+                <TouchableHighlight
+                  style={{ borderRadius: 15 }}
                   onPress={() => {
                     let newMaxPlayers = maxPlayers - 1;
                     if (newMaxPlayers >= minPlayers) {
                       setMaxPlayers(newMaxPlayers);
                     }
                   }}
-                ></Button>
+                >
+                  <Text
+                    style={{
+                      backgroundColor: "#5899e2",
+                      width: 28,
+                      borderRadius: 15,
+                      textAlign: "center",
+                      color: "white",
+                      fontSize: 20,
+                    }}
+                  >
+                    -
+                  </Text>
+                </TouchableHighlight>
                 <Text
                   style={{
                     borderWidth: 1,
@@ -166,12 +201,25 @@ const GamesList = () => {
                 >
                   {maxPlayers}
                 </Text>
-                <Button
-                  title="+"
+                <TouchableHighlight
+                  style={{ borderRadius: 15 }}
                   onPress={() => {
                     setMaxPlayers(maxPlayers + 1);
                   }}
-                ></Button>
+                >
+                  <Text
+                    style={{
+                      backgroundColor: "#5899e2",
+                      width: 28,
+                      borderRadius: 15,
+                      textAlign: "center",
+                      color: "white",
+                      fontSize: 20,
+                    }}
+                  >
+                    +
+                  </Text>
+                </TouchableHighlight>
               </View>
             </View>
           </View>
@@ -214,7 +262,7 @@ const GamesList = () => {
                       borderRadius: 3,
                       textAlign: "center",
                       backgroundColor: ownersFiltered.includes(owner)
-                        ? "red"
+                        ? "#5899e2"
                         : "white",
                     }}
                   >
@@ -237,15 +285,23 @@ const GamesList = () => {
           textAlign: "left",
           paddingHorizontal: 10,
           paddingVertical: 3,
-          borderBottomColor: "blue",
+          borderBottomColor: "#5899e2",
           borderBottomWidth: 1,
           marginTop: 20,
           marginLeft: 20,
+          marginBottom: 10,
         }}
       >
-        Total games: {games.length}
+        Juegos: {games.length}
       </Text>
-      <View style={{ flexDirection: "row", flexWrap: "wrap" }}>
+      <View
+        style={{
+          flexDirection: "row",
+          flexWrap: "wrap",
+          paddingHorizontal: 16,
+          paddingBottom: 20,
+        }}
+      >
         {games.map((game) => (
           <GameCard key={game.id} game={game}></GameCard>
         ))}
