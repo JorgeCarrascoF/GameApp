@@ -11,10 +11,10 @@ import { GamesContext } from "./Main";
 
 const GamesList = () => {
   const { gamesData } = useContext(GamesContext);
-
   let owners = gamesData.map((game) => game.owner);
   let uniqueOwners = [...new Set(owners)];
 
+  
   const [filtering, setFiltering] = useState(false);
   const [games, setGames] = useState(gamesData);
   const [seeOwners, setSeeOwners] = useState(true);
@@ -239,6 +239,7 @@ const GamesList = () => {
               <View
                 style={{
                   flexDirection: "row",
+                  paddingHorizontal: 20,
                   justifyContent: "space-around",
                   flexWrap: "wrap",
                 }}
@@ -258,12 +259,15 @@ const GamesList = () => {
                       }
                     }}
                     style={{
-                      borderWidth: 1,
-                      padding: 1,
-                      marginLeft: 10,
-                      width: 60,
+                      paddingVertical: 2,
+                      margin: 5,
+                      width: 70,
+                      borderWidth: 2,
                       borderRadius: 3,
+                      borderColor: "#5899e2",
                       textAlign: "center",
+                      textAlignVertical: "center",
+                      color: ownersFiltered.includes(owner) ? "white" : "black",
                       backgroundColor: ownersFiltered.includes(owner)
                         ? "#5899e2"
                         : "white",
